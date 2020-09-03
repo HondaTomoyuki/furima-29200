@@ -11,7 +11,7 @@
 | nick_name            | string     | null: false                    |
 | last_name_furigana   | string     | null: false                    |
 | first_name _furigana | string     | null: false                    |
-| birthday             | datetime   | null: false                    |
+| birthday             | date       | null: false                    |
 
 ### Association
 - has_many :items
@@ -26,9 +26,12 @@
 | user             | references | null: false, foreign_key: true |
 | name             | string     | null: false                    |
 | details          | text       | null: false                    |
-| category         | string     | null: false                    |
+| category_id      | integer    | null: false                    |
+| status_id        | integer    | null: false                    |
+| delivery_area_id | integer    | null: false                    |
+| delivery_time_id | integer    | null: false                    |
 | price            | integer    | null: false                    |
-
+ 
 ### Association
 - has_many :comments
 - belongs_to :user
@@ -63,15 +66,15 @@
 
 ## shipping_addressesテーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| purchase         | references | null: false, foreign_key: true |
-| postal_code      | string     | null: false                    |
-| prefectures      | string     | null: false                    |
-| city             | string     | null: false                    |
-| address          | string     | null: false                    |
-| building_name    | string     |                                |
-| phone_number     | string     | null: false                    |
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| purchase       | references | null: false, foreign_key: true |
+| postal_code    | string     | null: false                    |
+| prefectures_id | integer    | null: false                    |
+| city           | string     | null: false                    |
+| address        | string     | null: false                    |
+| building_name  | string     |                                |
+| phone_number   | string     | null: false                    |
 
 ### Association
 - belongs_to :purchase
