@@ -9,10 +9,9 @@
 | email                | string     | null: false                    |
 | password             | string     | null: false                    |
 | nick_name            | string     | null: false                    |
-| last_name_kanji      | string     | null: false                    |
-| first_name _kanji    | string     | null: false                    |
 | last_name_furigana   | string     | null: false                    |
 | first_name _furigana | string     | null: false                    |
+| birthday             | datetime   | null: false                    |
 
 ### Association
 - has_many :items
@@ -25,12 +24,9 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | user             | references | null: false, foreign_key: true |
-| image            | text       | null: false                    |
 | name             | string     | null: false                    |
-| text             | text       | null: false                    |
 | details          | text       | null: false                    |
-| shipping_charges | string     | null: false                    |
-| delivery_time    | string     | null: false                    |
+| category         | string     | null: false                    |
 | price            | integer    | null: false                    |
 
 ### Association
@@ -70,10 +66,12 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | purchase         | references | null: false, foreign_key: true |
-| postal_code      | integer    | null: false                    |
+| postal_code      | string     | null: false                    |
+| prefectures      | string     | null: false                    |
 | city             | string     | null: false                    |
+| address          | string     | null: false                    |
 | building_name    | string     |                                |
-| phone_number     | integer    | null: false                    |
+| phone_number     | string     | null: false                    |
 
 ### Association
 - belongs_to :purchase
