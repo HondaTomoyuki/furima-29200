@@ -10,7 +10,7 @@
 | password             | string     | null: false                    |
 | nick_name            | string     | null: false                    |
 | last_name_furigana   | string     | null: false                    |
-| first_name _furigana | string     | null: false                    |
+| first_name_furigana  | string     | null: false                    |
 | birthday             | date       | null: false                    |
 
 ### Association
