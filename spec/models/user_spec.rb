@@ -18,10 +18,6 @@ describe User do
         @user.email = "aaa@aaa"
         expect(@user).to be_valid
       end
-      # it "emailに一意性があれば登録できる" do
-      #   user = User.create(name: "Test", user_id: "test", email: "taro@example.com")
-      #   expect(user).to_not be_valid
-      # end
       it "password6文字以上であれば登録できる" do
         @user.password = "1qa1qa"
         @user.password_confirmation = "1qa1qa"
