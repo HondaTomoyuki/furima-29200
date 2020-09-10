@@ -14,6 +14,10 @@ describe User do
       @user.email = "aaa@aaa"
       expect(@user).to be_valid
       end
+      it "emailに@を記述してあれば登録できる"do
+      @user.email = "aaa@aaa"
+      expect(@user).to be_valid
+      end
       it "password6文字以上であれば登録できる" do
         @user.password = "1qa1qa"
         @user.password_confirmation = "1qa1qa"
@@ -52,6 +56,11 @@ describe User do
         @user.email = ""
         @user.valid?
         expect(@user.errors.full_messages).to include("Email can't be blank")
+      end
+      it "emailで@が記述されていなければ登録できない" do
+        @user.email = "aaaaaa"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Email is invalid")
       end
       it "重複したemailが存在する場合登録できない" do
         @user.save
