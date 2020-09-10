@@ -6,12 +6,7 @@ describe User do
 
   describe 'ユーザー新規登録' do
     context '新規登録がうまくいくとき' do
-      it "nickname記述してあれば登録できる"do
-        @user.nickname = "aaa"
-        expect(@user).to be_valid
-      end
-      it "email記述してあれば登録できる"do
-        @user.email = "aaa@aaa"
+      it "nickname,email,first_name,last_name,first_name_furigana,last_name_furigana,birthdayは記述してあれば登録できる"do
         expect(@user).to be_valid
       end
       it "emailに@を記述してあれば登録できる"do
@@ -28,43 +23,12 @@ describe User do
         @user.password_confirmation = "1qa1qa"
         expect(@user).to be_valid
       end
-        it "first_name記述してあれば登録できる"do
-        @user.first_name = "山田"
+      it "first_nameは全角、ast_nameは全角（漢字・ひらがな・カタカナ）で記述してあれば登録できる"do
         expect(@user).to be_valid
       end
-      it "first_nameは全角（漢字・ひらがな・カタカナ）で記述してあれば登録できる"do
-        @user.first_name = "山田"
+      it "first_name_furigana、last_name_furiganaはフリガナが全角（カタカナ）であれば登録できる"do
         expect(@user).to be_valid
       end
-      it "last_name記述してあれば登録できる"do
-        @user.last_name = "太郎"
-       expect(@user).to be_valid
-      end
-      it "last_nameは全角（漢字・ひらがな・カタカナ）で記述してあれば登録できる"do
-        @user.last_name = "太郎"
-       expect(@user).to be_valid
-      end
-      it "first_name_furigana記述してあれば登録できる"do
-        @user.first_name_furigana = "ヤマダ"
-        expect(@user).to be_valid
-      end
-      it "first_name_furiganaのフリガナは全角（カタカナ）であれば登録できる"do
-        @user.first_name_furigana = "ヤマダ"
-        expect(@user).to be_valid
-      end
-      it "last_name_furigana記述してあれば登録できる"do
-        @user.last_name_furigana = "タロウ"
-       expect(@user).to be_valid
-      end
-      it "last_name_furiganaのフリガナは全角（カタカナ）であれば登録できる"do
-        @user.last_name_furigana = "タロウ"
-       expect(@user).to be_valid
-      end
-      it "birthday記述してあれば登録できる"do
-        @user.birthday = "2020-08-01"
-        expect(@user).to be_valid
-      end
-
     end
 
     context '新規登録がうまくいかないとき' do
