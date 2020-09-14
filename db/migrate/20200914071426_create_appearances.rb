@@ -1,0 +1,10 @@
+class CreateAppearances < ActiveRecord::Migration[6.0]
+  def change
+    create_table :appearances do |t|
+      t.string     :title        , null: false
+      t.text       :text         , null: false
+      t.integer    :status_id     , null: false
+      t.timestamps
+    end
+  end
+end
