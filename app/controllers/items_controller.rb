@@ -1,27 +1,23 @@
 class ItemsController < ApplicationController
-  
-  before_action :move_to_index, except: [:index, :new]
+  before_action :authenticate_user!, only: [:new]
 
   def index
+    # @user = User.new
+    @item = Item.new
   end
-  
+
   def new
-    @user = User.new
+   
   end
-  
+
   def create
+    Item.create(user_id: params[:image])
   end
-  
-  def show
-  end
-  
+
   private
 
-  def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+  def item_params
+    params.require(:item).permit(:image).merge(user_id: current_user.id)
   end
-  
+
 end
- 
