@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :details
-    validates :category_id
+    validates :genre_id
     validates :status_id
     validates :burden_id
     validates :delivery_area_id
@@ -21,7 +21,7 @@ class Item < ApplicationRecord
   end
 
     with_options numericality: { other_than: 1 } do
-      validates :category_id
+      validates :genre_id
       validates :status_id
       validates :burden_id
       validates :delivery_area_id

@@ -6,7 +6,7 @@ describe Item do
 
   describe '商品出品機能' do
     context '商品出品機能がうまくいくとき' do
-      it "name,details,category_id,status_id,burden_id,delivery_area_id,delivery_time_id,price,image" do
+      it "name,details,genre_id,status_id,burden_id,delivery_area_id,delivery_time_id,price,image" do
         expect(@item).to be_valid
       end
     end
@@ -23,15 +23,15 @@ describe Item do
       @item.valid?
       expect(@item.errors.full_messages).to include("Details can't be blank")
     end
-    it "category_idが空だと登録できない" do
-      @item.category_id = ""
+    it "genre_idが空だと登録できない" do
+      @item.genre_id = ""
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category is not a number")
+      expect(@item.errors.full_messages).to include("Genre is not a number")
     end
-    it "category_idが1だと登録できない" do
-      @item.category_id = "1"
+    it "genre_idが1だと登録できない" do
+      @item.genre_id = "1"
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category must be other than 1")
+      expect(@item.errors.full_messages).to include("Genre must be other than 1")
     end
     it "status_idが空だと登録できない" do
       @item.status_id = ""

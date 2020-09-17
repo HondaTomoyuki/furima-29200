@@ -6,7 +6,7 @@ FactoryBot.define do
     end
     name             {"景色"}
     details          {"旅行の写真です"}
-    category_id      {2}
+    genre_id         {2}
     status_id        {2}
     burden_id        {2}
     delivery_area_id {2}
