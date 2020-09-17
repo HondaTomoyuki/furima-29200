@@ -10,12 +10,15 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @item = Item.new(item_params)
       if @item.save
-        redirect_to user_session_path
+        redirect_to items_path
+      else
+        render :new
       end
     
-  end
+  end 
 
 
 
