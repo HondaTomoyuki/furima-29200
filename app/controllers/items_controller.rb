@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @user = User.new
+    @item = Item.all
   end
 
   def new
@@ -16,9 +17,14 @@ class ItemsController < ApplicationController
       else
         render :new
       end
-    
   end 
 
+  def update
+    @item = Item.all(params[:id])
+    @item.update params.require(:item).permit(:name, :details, :genre_id, :status_id, :burden_id, :delivery_area_id, :delivery_time_id, :price, :image).merge(user_id: current_user.id) 
+    redirect_to @item
+  end
+  
 
 
   private
