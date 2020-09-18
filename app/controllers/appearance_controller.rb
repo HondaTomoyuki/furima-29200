@@ -1,14 +1,14 @@
 class AppearanceController < ApplicationController
   def index
-    @appearance = Appearance.order("created_at DESC")
+    @appearances = Appearance.order("created_at DESC")
   end
 
   def new
-    @appearance = Appearance.new
+    @appearances = Appearance.new
   end
 
   def create
-    @appearance = Appearance.new(appearance_params)
+    @appearances = Appearance.new(appearance_params)
   end
 
   private
