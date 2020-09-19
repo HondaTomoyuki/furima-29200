@@ -1,4 +1,5 @@
 class Status < ActiveHash::Base
+
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '未使用、新品' },

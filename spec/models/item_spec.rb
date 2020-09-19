@@ -6,7 +6,7 @@ describe Item do
 
   describe '商品出品機能' do
     context '商品出品機能がうまくいくとき' do
-      it "name,details,genre_id,status_id,burden_id,delivery_area_id,delivery_time_id,price,image" do
+      it "name,details,genre_id,status_id,burden_id,prefecture_id,delivery_day_id,price,image" do
         expect(@item).to be_valid
       end
     end
@@ -53,25 +53,25 @@ describe Item do
       @item.valid?
       expect(@item.errors.full_messages).to include("Burden must be other than 1")
     end
-    it "delivery_area_idが空だと登録できない" do
-      @item.delivery_area_id = ""
+    it "prefecture_idが空だと登録できない" do
+      @item.prefecture_id = ""
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery area is not a number")
+      expect(@item.errors.full_messages).to include("Prefecture can't be blank", "Prefecture is not a number")
     end
-    it "delivery_area_idが1だと登録できない" do
-      @item.delivery_area_id = "1"
+    it "prefecturea_idが1だと登録できない" do
+      @item.prefecture_id = "1"
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery area must be other than 1")
+      expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
     end
-    it "delivery_time_idが空だと登録できない" do
-      @item.delivery_time_id = ""
+    it "delivery_day_idが空だと登録できない" do
+      @item.delivery_day_id = ""
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery time is not a number")
+      expect(@item.errors.full_messages).to include("Delivery day can't be blank", "Delivery day is not a number")
     end
-    it "delivery_time_idが1だと登録できない" do
-      @item.delivery_time_id = "1"
+    it "deliveryday_idが1だと登録できない" do
+      @item.delivery_day_id = "1"
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery time must be other than 1")
+      expect(@item.errors.full_messages).to include("Delivery day must be other than 1")
     end
     it "priceが300未満だと登録できない" do
       @item.price = "299"
