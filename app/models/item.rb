@@ -3,8 +3,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :genre
   belongs_to_active_hash :burden 
   belongs_to_active_hash :delivery_day
-  belongs_to_active_hash :prefecture 
-  belongs_to_active_hash :Status
+  belongs_to_active_hash :prefecture
+  belongs_to_active_hash :status
 
   has_one_attached :image
   belongs_to :user
@@ -15,8 +15,8 @@ class Item < ApplicationRecord
     validates :genre_id
     validates :status_id
     validates :burden_id
-    validates :delivery_area_id
-    validates :delivery_time_id
+    validates :prefecture_id
+    validates :delivery_day_id
     validates :image
   end
 
@@ -24,8 +24,8 @@ class Item < ApplicationRecord
       validates :genre_id
       validates :status_id
       validates :burden_id
-      validates :delivery_area_id
-      validates :delivery_time_id
+      validates :prefecture_id
+      validates :delivery_day_id
     end
 
       validates :price, presence: true, format: { with: /\A[0-9]+\z/ }, 

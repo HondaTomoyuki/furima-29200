@@ -9,8 +9,8 @@ FactoryBot.define do
     genre_id         {2}
     status_id        {2}
     burden_id        {2}
-    delivery_area_id {2}
-    delivery_time_id {2}
+    prefecture_id    {2}
+    delivery_day_id  {2}
     price            {1000}
   end
 end
