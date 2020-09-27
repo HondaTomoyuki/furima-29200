@@ -1,9 +1,10 @@
-function priceInput() {
+window.addEventListener('load', function(){
+// function priceInput() {
 
-    let price= document.getElementById("item-price")
+    let price = document.getElementById("item-price")
         price.addEventListener("keyup", () => {
   const priceValue = document.getElementById("item-price").value
-        
+  console.log(priceValue)
     let salesCommission = document.getElementById("add-tax-price");
     let fee = priceValue * 0.1
     let feeDecimal = Math.floor(fee); //小数点切捨て
@@ -20,5 +21,6 @@ function priceInput() {
         sales = numericalProfit.toLocaleString()
         salesProfit.innerHTML = sales
     });
-}
-window.addEventListener = ('load', priceInput)
+// }
+});
+// window.addEventListener = ('load', priceInput)
